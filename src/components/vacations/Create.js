@@ -58,7 +58,7 @@ export default function Create() {
                     <Form.Control type="date" placeholder='Date Init' onChange={(e) => setDateEnd(e.target.value)}  />
                   </Form.Group>
                   
-                  <Form.Control type="text" placeholder='Date Init' onChange={(e) => setEmployeeId((e.target.value))}  />
+                  <Form.Control type="text" placeholder='Employee' onChange={(e) => setEmployeeId((e.target.value))}  />
 
                   <Button variant="primary" onClick={postData} >
                     Submit

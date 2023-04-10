@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import List from './vacations/List.js';
 import Create from './vacations/Create.js';
 

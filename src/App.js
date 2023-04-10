@@ -1,8 +1,10 @@
-import Vacations from './components/Vacations';
+import Vacations from './components/Vacation';
+import Employee from './components/Employee';
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
+      <Employee />
       <Vacations />
     </div>
   );
