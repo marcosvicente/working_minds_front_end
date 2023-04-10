@@ -7,11 +7,12 @@ import Modal from 'react-bootstrap/Modal';
 export default function Create() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const [date_init, setDateInit] = useState('');
     const [date_end, setDateEnd] = useState('');
     const [employee_id, setEmployeeId] = useState('');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
     const postData = () => {
         axios.post(`http://127.0.0.1:3000/vacations`, {
@@ -24,7 +25,6 @@ export default function Create() {
         .then((response) => {
           if (response.data.status === "success") {
             setShow(true)
-            this.resetForm();
            } else if (response.data.status === "fail") {
             setError(error.response.data);
           }
@@ -34,9 +34,10 @@ export default function Create() {
           console.log(error.response.data)
        })
     }
+
     return (
       <>
-        <Button variant="primary" onClick={() => this.setState({ modal: true })}>
+        <Button variant="primary"  onClick={handleShow}>
           Create Vacation
         </Button>
 
@@ -63,15 +64,8 @@ export default function Create() {
                     Submit
                   </Button>
 
-                  {error !== null &&
-                    <p className="Error">
-                      {
-                        error.map((err) => {
-                          <p>{err}</p>
-                        }) 
-                      }
-                  </p>
-                  }
+                  <p>{error}</p>
+                 
               </Form>
             </>
           </Modal.Body>
